@@ -1,0 +1,1015 @@
+{
+	"info": {
+		"_postman_id": "abc92108-0f45-40c9-b81e-041b0c648c51",
+		"name": "Sacchon On AWS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "chiefDoctor",
+			"item": [
+				{
+					"name": "createChiefDoctor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBRE1JTiIsImF1ZCI6IkNoaWVmRG9jdG9yIiwicm9sZSI6ImNoaWVmRG9jdG9yIiwiaWQiOjEsImlhdCI6MTYyMTE1MjAyNywiZXhwIjoxNjIxMTUyOTI3fQ.mbw5kAkEFG_HHRuQ9oksHjlMTFIrZolnsohH-VVBXWo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "18.224.190.202:9000/v1/chiefDoctor",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"chiefDoctor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register Doctor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBRE1JTiIsImF1ZCI6IkNoaWVmRG9jdG9yIiwicm9sZSI6ImNoaWVmRG9jdG9yIiwiaWQiOjEsImlhdCI6MTYyMTE2Mzc3MywiZXhwIjoxNjIxMTY0NjczfQ.1zGlb5Oo5WGSwadSLjCJEbivzxUX-JPAhSnFg24kyEc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Dr.One\",\r\n    \"password\":\"1234\",\r\n    \"email\":\"dr.one@sacchon.com\",\r\n    \"address\":\"Thessalonika\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "18.224.190.202:9000/v1/doctor",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"doctor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Patients",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBRE1JTiIsImF1ZCI6IkNoaWVmRG9jdG9yIiwicm9sZSI6ImNoaWVmRG9jdG9yIiwiaWQiOjEsImlhdCI6MTYyMTE2Mzc3MywiZXhwIjoxNjIxMTY0NjczfQ.1zGlb5Oo5WGSwadSLjCJEbivzxUX-JPAhSnFg24kyEc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "18.224.190.202:9000/v1/patient",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"patient"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Specific Patient",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBRE1JTiIsImF1ZCI6IkNoaWVmRG9jdG9yIiwicm9sZSI6ImNoaWVmRG9jdG9yIiwiaWQiOjEsImlhdCI6MTYyMTE2Mzc3MywiZXhwIjoxNjIxMTY0NjczfQ.1zGlb5Oo5WGSwadSLjCJEbivzxUX-JPAhSnFg24kyEc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "18.224.190.202:9000/v1/patient/1",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"patient",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Doctors",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBRE1JTiIsImF1ZCI6IkNoaWVmRG9jdG9yIiwicm9sZSI6ImNoaWVmRG9jdG9yIiwiaWQiOjEsImlhdCI6MTYyMTE2Mzc3MywiZXhwIjoxNjIxMTY0NjczfQ.1zGlb5Oo5WGSwadSLjCJEbivzxUX-JPAhSnFg24kyEc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "18.224.190.202:9000/v1/doctor",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"doctor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Specific Doctor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBRE1JTiIsImF1ZCI6IkNoaWVmRG9jdG9yIiwicm9sZSI6ImNoaWVmRG9jdG9yIiwiaWQiOjEsImlhdCI6MTYyMTE2Mzc3MywiZXhwIjoxNjIxMTY0NjczfQ.1zGlb5Oo5WGSwadSLjCJEbivzxUX-JPAhSnFg24kyEc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "18.224.190.202:9000/v1/doctor/1",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"doctor",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Carbs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBRE1JTiIsImF1ZCI6IkNoaWVmRG9jdG9yIiwicm9sZSI6ImNoaWVmRG9jdG9yIiwiaWQiOjEsImlhdCI6MTYyMTE2Mzc3MywiZXhwIjoxNjIxMTY0NjczfQ.1zGlb5Oo5WGSwadSLjCJEbivzxUX-JPAhSnFg24kyEc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "18.224.190.202:9000/v1/carb",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"carb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Specific Carb",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBRE1JTiIsImF1ZCI6IkNoaWVmRG9jdG9yIiwicm9sZSI6ImNoaWVmRG9jdG9yIiwiaWQiOjEsImlhdCI6MTYyMTE2Mzc3MywiZXhwIjoxNjIxMTY0NjczfQ.1zGlb5Oo5WGSwadSLjCJEbivzxUX-JPAhSnFg24kyEc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "18.224.190.202:9000/v1/carb/1",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"carb",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Glucose",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBRE1JTiIsImF1ZCI6IkNoaWVmRG9jdG9yIiwicm9sZSI6ImNoaWVmRG9jdG9yIiwiaWQiOjEsImlhdCI6MTYyMTE2Mzc3MywiZXhwIjoxNjIxMTY0NjczfQ.1zGlb5Oo5WGSwadSLjCJEbivzxUX-JPAhSnFg24kyEc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "18.224.190.202:9000/v1/glucose",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"glucose"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Specific Glucose",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBRE1JTiIsImF1ZCI6IkNoaWVmRG9jdG9yIiwicm9sZSI6ImNoaWVmRG9jdG9yIiwiaWQiOjEsImlhdCI6MTYyMTE2Mzc3MywiZXhwIjoxNjIxMTY0NjczfQ.1zGlb5Oo5WGSwadSLjCJEbivzxUX-JPAhSnFg24kyEc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "18.224.190.202:9000/v1/carb/1",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"carb",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Consultations",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBRE1JTiIsImF1ZCI6IkNoaWVmRG9jdG9yIiwicm9sZSI6ImNoaWVmRG9jdG9yIiwiaWQiOjEsImlhdCI6MTYyMTE2Mzc3MywiZXhwIjoxNjIxMTY0NjczfQ.1zGlb5Oo5WGSwadSLjCJEbivzxUX-JPAhSnFg24kyEc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "18.224.190.202:9000/v1/consultation",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"consultation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Specific Consultation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBRE1JTiIsImF1ZCI6IkNoaWVmRG9jdG9yIiwicm9sZSI6ImNoaWVmRG9jdG9yIiwiaWQiOjEsImlhdCI6MTYyMTE2Mzc3MywiZXhwIjoxNjIxMTY0NjczfQ.1zGlb5Oo5WGSwadSLjCJEbivzxUX-JPAhSnFg24kyEc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "18.224.190.202:9000/v1/consultation/1",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"consultation",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Specific reportPatientCarb",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBRE1JTiIsImF1ZCI6IkNoaWVmRG9jdG9yIiwicm9sZSI6ImNoaWVmRG9jdG9yIiwiaWQiOjEsImlhdCI6MTYyMTE2Mzc3MywiZXhwIjoxNjIxMTY0NjczfQ.1zGlb5Oo5WGSwadSLjCJEbivzxUX-JPAhSnFg24kyEc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "18.224.190.202:9000/v1/reportPatientCarb/1?period=05/05/2021",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"reportPatientCarb",
+								"1"
+							],
+							"query": [
+								{
+									"key": "period",
+									"value": "05/05/2021"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Specific reportPatientGlucose",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBRE1JTiIsImF1ZCI6IkNoaWVmRG9jdG9yIiwicm9sZSI6ImNoaWVmRG9jdG9yIiwiaWQiOjEsImlhdCI6MTYyMTE2Mzc3MywiZXhwIjoxNjIxMTY0NjczfQ.1zGlb5Oo5WGSwadSLjCJEbivzxUX-JPAhSnFg24kyEc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "18.224.190.202:9000/v1/reportPatientGlucose/1?period=05/05/2021",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"reportPatientGlucose",
+								"1"
+							],
+							"query": [
+								{
+									"key": "period",
+									"value": "05/05/2021"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Chief Doctor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBRE1JTiIsImF1ZCI6IkNoaWVmRG9jdG9yIiwicm9sZSI6ImNoaWVmRG9jdG9yIiwiaWQiOjEsImlhdCI6MTYyMTE2Mzc3MywiZXhwIjoxNjIxMTY0NjczfQ.1zGlb5Oo5WGSwadSLjCJEbivzxUX-JPAhSnFg24kyEc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "18.224.190.202:9000/v1/chiefDoctor",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"chiefDoctor"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Doctor",
+			"item": [
+				{
+					"name": "Create Patient",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJEb2N0b3IiLCJyb2xlIjoiZG9jdG9yIiwiaWQiOjEsImlhdCI6MTYyMTE2MzQyNCwiZXhwIjoxNjIxMTY0MzI0fQ.uNUEkGJ5qi59EcGPFOeiAR7IJYhH8uwmTOtJ-5CoQeM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Axiotis\",\r\n    \"password\":\"12345678\",\r\n    \"email\":\"notme@panosaxiotis.com\",\r\n    \"address\":\"Thessalonikis\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "18.224.190.202:9000/v1/doctor/patient/",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"doctor",
+								"patient",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patient Settings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "Add Patient Carb",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"carb\":\"\",\r\n    \"date\":\"\",\r\n    \"dateOffsetDays\":\"\",\r\n    \"patientId\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "18.224.190.202:9000/v1/doctor/1/carb/",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"doctor",
+								"1",
+								"carb",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Patient Carb",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "18.224.190.202:9000/v1/doctor/1/carb/",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"doctor",
+								"1",
+								"carb",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Patient Glucose",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"glucose\":\"\",\r\n    \"date\":\"\",\r\n    \"patientId\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "18.224.190.202:9000/v1/doctor/1/glucose/",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"doctor",
+								"1",
+								"glucose",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Patient Glucose",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "18.224.190.202:9000/v1/doctor/1/glucose/",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"doctor",
+								"1",
+								"glucose",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Doctor Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Dr.One\",\r\n    \"password\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "18.224.190.202:9000/v1/login",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Patient",
+			"item": [
+				{
+					"name": "Register Patient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Patient1\",\r\n    \"password\":\"1234\",\r\n    \"email\":\"me@panosaxiotis.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "18.224.190.202:9000/v1/register",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patient Settings",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJQYXRpZW50Iiwicm9sZSI6InBhdGllbnQiLCJpZCI6MSwiaWF0IjoxNjIxMTUyNTk0LCJleHAiOjE2MjExNTM0OTR9.QIoZcbLbVZtArw2nclnHWkvfq7IC8aMulmhsj4AKyzA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "18.224.190.202:9000/v1/patientSettings",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"patientSettings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patient Carb Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "18.224.190.202:9000/v1/patient/carb/",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"patient",
+								"carb",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patient Carb Get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJQYXRpZW50Iiwicm9sZSI6InBhdGllbnQiLCJpZCI6MSwiaWF0IjoxNjIxMTUyNTk0LCJleHAiOjE2MjExNTM0OTR9.QIoZcbLbVZtArw2nclnHWkvfq7IC8aMulmhsj4AKyzA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "18.224.190.202:9000/v1/patient/carb/1",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"patient",
+								"carb",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patient Glucose Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJQYXRpZW50Iiwicm9sZSI6InBhdGllbnQiLCJpZCI6MSwiaWF0IjoxNjIxMTUyNTk0LCJleHAiOjE2MjExNTM0OTR9.QIoZcbLbVZtArw2nclnHWkvfq7IC8aMulmhsj4AKyzA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"glucose\":\"95\",\r\n    \"date\":\"05152021\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "18.224.190.202:9000/v1/patient/glucose/",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"patient",
+								"glucose",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patient Glucose Get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJQYXRpZW50Iiwicm9sZSI6InBhdGllbnQiLCJpZCI6MSwiaWF0IjoxNjIxMTUyNTk0LCJleHAiOjE2MjExNTM0OTR9.QIoZcbLbVZtArw2nclnHWkvfq7IC8aMulmhsj4AKyzA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "18.224.190.202:9000/v1/patient/glucose/1",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"patient",
+								"glucose",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login as a Patient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Patient1\",\r\n    \"password\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "18.224.190.202:9000/v1/login",
+							"host": [
+								"18",
+								"224",
+								"190",
+								"202"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "18.224.190.202:9000/v1/ping",
+					"host": [
+						"18",
+						"224",
+						"190",
+						"202"
+					],
+					"port": "9000",
+					"path": [
+						"v1",
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Admin\",\r\n    \"password\":\"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "18.224.190.202:9000/v1/login",
+					"host": [
+						"18",
+						"224",
+						"190",
+						"202"
+					],
+					"port": "9000",
+					"path": [
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

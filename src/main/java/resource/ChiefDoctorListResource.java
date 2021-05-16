@@ -8,6 +8,7 @@ import org.restlet.resource.Post;
 import org.restlet.resource.ServerResource;
 import repository.ChiefDoctorRepository;
 import representation.ChiefDoctorRepresentation;
+import security.Shield;
 
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ import java.util.List;
 public class ChiefDoctorListResource extends ServerResource {
     @Get("json")
     public List<ChiefDoctorRepresentation> getChiefDoctor() throws AuthorizationException {
-//        ResourceUtils.checkRole(this, Shield.ROLE_CHIEF_DOCTOR);
+        ResourceUtils.checkRole(this, Shield.ROLE_CHIEF_DOCTOR);
         EntityManager em = JpaUtil.getEntityManager();
         ChiefDoctorRepository chiefDoctorRepository = new ChiefDoctorRepository(em);
         List<ChiefDoctor> chiefDoctors = chiefDoctorRepository.findAll();
@@ -31,7 +32,7 @@ public class ChiefDoctorListResource extends ServerResource {
 
     @Post("json")
     public ChiefDoctorRepresentation add(ChiefDoctorRepresentation chiefDoctorRepresentationIn) throws AuthorizationException {
-//        ResourceUtils.checkRole(this, Shield.ROLE_CHIEF_DOCTOR);
+        ResourceUtils.checkRole(this, Shield.ROLE_CHIEF_DOCTOR);
         if (chiefDoctorRepresentationIn == null) return null;
         if (chiefDoctorRepresentationIn.getName() == null) return null;
 

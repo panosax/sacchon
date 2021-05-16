@@ -18,7 +18,6 @@ public class PatientConsultationResource extends ServerResource {
     private long consultationId;
 
     protected void doInit() {
-        patientId = Long.parseLong(getAttribute("patientId"));
         consultationId = Long.parseLong(getAttribute("consultationId"));
     }
 
@@ -27,9 +26,10 @@ public class PatientConsultationResource extends ServerResource {
     public ConsultationRepresentation getConsultation() throws AuthorizationException {
         ResourceUtils.checkRole(this, Shield.ROLE_PATIENT);
         EntityManager em = JpaUtil.getEntityManager();
+        patientId = Long.parseLong(this.getRequest().getClientInfo().getUser().getIdentifier());
 
         PatientRepository patientRepository = new PatientRepository(em);
-        List<Consultation> consultationList = patientRepository.getConsultationList(this.patientId);
+        List<Consultation> consultationList = patientRepository.getConsultationList(patientId);
         Consultation consultation = new Consultation();
         for (Consultation c : consultationList) {
             if (c.getId() == consultationId) {

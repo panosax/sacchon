@@ -17,9 +17,10 @@ import javax.persistence.EntityManager;
 public class PatientSettingsResource extends ServerResource {
     private long id;
 
-    protected void doInit() {
-        id = Long.parseLong(getAttribute("id"));
-    }
+//    protected void doInit() {
+//        id = Long.parseLong(getAttribute("id"));
+//
+//    }
 
 
     @Get("json")
@@ -28,6 +29,7 @@ public class PatientSettingsResource extends ServerResource {
 
         EntityManager em = JpaUtil.getEntityManager();
         PatientRepository patientRepository = new PatientRepository(em);
+        id = Long.parseLong(this.getRequest().getClientInfo().getUser().getIdentifier());
         Patient patient = patientRepository.read(id);
         PatientRepresentation patientRepresentation = new PatientRepresentation(patient);
         em.close();

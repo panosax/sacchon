@@ -14,10 +14,7 @@ import java.util.Date;
 public class PatientCarbAverageResource extends ServerResource {
     private long patientId;
 
-    protected void doInit() {
 
-        patientId = Long.parseLong(getAttribute("patientId"));
-    }
 
     @Get
     public Double getAverageCarb() throws AuthorizationException {
@@ -28,9 +25,10 @@ public class PatientCarbAverageResource extends ServerResource {
         Date dateEnd = ResourceUtils.stringToDate(end, 1);
 
         EntityManager em = JpaUtil.getEntityManager();
+        patientId = Long.parseLong(this.getRequest().getClientInfo().getUser().getIdentifier());
 
         PatientRepository patientRepository = new PatientRepository(em);
-        Double carb = patientRepository.getCarbAverage(this.patientId, dateStart, dateEnd);
+        Double carb = patientRepository.getCarbAverage(patientId, dateStart, dateEnd);
 
         em.close();
         return carb;

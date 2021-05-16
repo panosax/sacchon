@@ -13,7 +13,7 @@ import repository.PatientRepository;
 
 import javax.persistence.EntityManager;
 
-public class Verifier extends SecretVerifier {
+public class BasicVerifier extends SecretVerifier {
     public int verify(String username, char[] password) {
         //check db for user
         EntityManager em = JpaUtil.getEntityManager();
@@ -28,6 +28,7 @@ public class Verifier extends SecretVerifier {
                     request.getClientInfo().getRoles().add
                             (new Role(patient.getRole()));
                     em.close();
+
                     return SecretVerifier.RESULT_VALID;
                 }
             }

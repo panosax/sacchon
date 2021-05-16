@@ -23,8 +23,8 @@ public class CustomRouter {
         router.attach("/login", LogInResource.class);
 
         router.attach("/register", registerResource.class);
-        router.attach("/chiefDoctor", ChiefDoctorListResource.class);
-        router.attach("/chiefDoctor/{id}", ChiefDoctorResource.class);
+//        router.attach("/chiefDoctor", ChiefDoctorListResource.class);
+//        router.attach("/chiefDoctor/{id}", ChiefDoctorResource.class);
 
 
         return router;
@@ -35,32 +35,32 @@ public class CustomRouter {
         Router router = new Router();
 
         //Patient
-        router.attach("/patientSettings/{id}", PatientSettingsResource.class);
-        router.attach("/patient/{patientId}/carb/{carbId}", PatientCarbResource.class);
-        router.attach("/patient/{patientId}/carb/", PatientCarbListResource.class);
-        router.attach("/patient/{patientId}/glucose/{glucoseId}", PatientGlucoseResource.class);
-        router.attach("/patient/{patientId}/glucose/", PatientGlucoseListResource.class);
-        router.attach("/patient/{patientId}/consultation/{consultationId}", PatientConsultationResource.class);
-        router.attach("/patient/{patientId}/consultation/", PatientConsultationListResource.class);
-        router.attach("/patientCarbDailyAverage/{patientId}", PatientCarbDailyAverageResource.class); //get
-        router.attach("/patientCarbAverage/{patientId}", PatientCarbAverageResource.class);
-        router.attach("/patientGlucoseAverage/{patientId}", PatientGlucoseAverageResource.class); //get
+        router.attach("/patientSettings", PatientSettingsResource.class);
+        router.attach("/patient/carb/{carbId}", PatientCarbResource.class);
+        router.attach("/patient/carb/", PatientCarbListResource.class);
+        router.attach("/patient/glucose/{glucoseId}", PatientGlucoseResource.class);
+        router.attach("/patient/glucose/", PatientGlucoseListResource.class);
+        router.attach("/patient/consultation/{consultationId}", PatientConsultationResource.class);
+        router.attach("/patient/consultation/", PatientConsultationListResource.class);
+        router.attach("/patientCarbDailyAverage/", PatientCarbDailyAverageResource.class); //get
+        router.attach("/patientCarbAverage/", PatientCarbAverageResource.class);
+        router.attach("/patientGlucoseAverage/", PatientGlucoseAverageResource.class); //get
 
 
         //Doctor
-        router.attach("/doctor/{doctorId}/patient/", DoctorPatientListResource.class);
-        router.attach("/doctor/{doctorId}/patient/{patientId}", DoctorPatientResource.class);
+        router.attach("/doctor/patient/", DoctorPatientListResource.class);
+        router.attach("/doctor/patient/{patientId}", DoctorPatientResource.class);
         router.attach("/doctor/{patientId}/carb/", DoctorPatientCarbListResource.class);
         router.attach("/doctor/{patientId}/glucose/", DoctorPatientGlucoseListResource.class);
         router.attach("/doctorPatient/{patientId}/consultation/", DoctorPatientConsultationListResource.class);
         router.attach("/doctorPatient/{patientId}/consultation/{consultationId}", DoctorPatientConsultationResource.class);
 
-        router.attach("/doctor/{doctorId}/unconsultedPatients/", DoctorUnconsultedPatientListResource.class);//
-        router.attach("/doctor/{doctorId}/unconsultedPatient/{unconsultedPatientId}", DoctorUnconsultedPatientResource.class);//
-        router.attach("/doctor/{doctorId}/needConsultationPatients/", DoctorNeedConsultationPatientListResource.class);//
-        router.attach("/doctor/{doctorId}/needConsultationPatient/{needConsultationPatientId}", DoctorNeedConsultationPatientResource.class);//
-        router.attach("/doctor/{doctorId}/consultation/", DoctorConsultationListResource.class);// put
-        router.attach("/doctor/{doctorId}/consultation/{consultationId}", DoctorConsultationResource.class);
+        router.attach("/doctor/unconsultedPatients/", DoctorUnconsultedPatientListResource.class);//
+        router.attach("/doctor/unconsultedPatient/{unconsultedPatientId}", DoctorUnconsultedPatientResource.class);//
+        router.attach("/doctor/needConsultationPatients/", DoctorNeedConsultationPatientListResource.class);//
+        router.attach("/doctor/needConsultationPatient/{needConsultationPatientId}", DoctorNeedConsultationPatientResource.class);//
+        router.attach("/doctor/consultation/", DoctorConsultationListResource.class);// put
+        router.attach("/doctor/consultation/{consultationId}", DoctorConsultationResource.class);
 
 
         //ChiefDoctor
@@ -83,6 +83,8 @@ public class CustomRouter {
         router.attach("/reportUnconsultedPatientDiff/", ReportUnconsultedPatientDiffListResource.class);
         router.attach("/patientInactive", PatientInactiveListResource.class);
         router.attach("/doctorInactive", DoctorInactiveListResource.class);
+        router.attach("/chiefDoctor", ChiefDoctorListResource.class);
+        router.attach("/chiefDoctor", ChiefDoctorResource.class);
 
         return router;
     }

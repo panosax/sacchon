@@ -5,13 +5,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import model.Patient;
 import repository.DoctorRepository;
+import util.CryptoUtils;
 
 import javax.persistence.EntityManager;
 import java.util.Date;
 
 @Data
 @NoArgsConstructor
-public class PatientRepresentation {
+public class
+PatientRepresentation {
     private long id;
     private String username;
     private String password;
@@ -51,7 +53,7 @@ public class PatientRepresentation {
     public Patient createPatient() {
         Patient patient = new Patient();
         patient.setUsername(username);
-        patient.setPassword(password);
+        patient.setPassword(CryptoUtils.hashPassword(password));
         patient.setName(name);
         patient.setAddress(address);
         patient.setEmail(email);

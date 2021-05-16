@@ -20,12 +20,8 @@ public class Shield {
     public ChallengeAuthenticator createApiGuard() {
 
         ChallengeAuthenticator apiGuard = new ChallengeAuthenticator(
-                application.getContext(), ChallengeScheme.HTTP_BASIC, "protected");
-
-
-        // - Verifier : checks authentication
-        // - Enroler : to check authorization (roles)
-        Verifier verifier = new Verifier();
+                application.getContext(), ChallengeScheme.HTTP_OAUTH_BEARER, "testRealm");
+        TokenBasedVerifier verifier = new TokenBasedVerifier();
         apiGuard.setVerifier(verifier);
 
         return apiGuard;

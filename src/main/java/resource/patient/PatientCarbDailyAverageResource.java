@@ -15,10 +15,6 @@ import java.util.List;
 public class PatientCarbDailyAverageResource extends ServerResource {
     private long patientId;
 
-    protected void doInit() {
-
-        patientId = Long.parseLong(getAttribute("patientId"));
-    }
 
     @Get
     public List<Double> getAverageCarb() throws AuthorizationException {
@@ -29,9 +25,10 @@ public class PatientCarbDailyAverageResource extends ServerResource {
         Date dateEnd = ResourceUtils.stringToDate(end, 1);
 
         EntityManager em = JpaUtil.getEntityManager();
+        patientId = Long.parseLong(this.getRequest().getClientInfo().getUser().getIdentifier());
 
         PatientRepository patientRepository = new PatientRepository(em);
-        List<Double> carbList = patientRepository.getCarbAverageList(this.patientId, dateStart, dateEnd);
+        List<Double> carbList = patientRepository.getCarbAverageList(patientId, dateStart, dateEnd);
 
         em.close();
         return carbList;

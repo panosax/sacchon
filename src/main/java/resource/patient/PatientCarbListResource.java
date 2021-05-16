@@ -18,12 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PatientCarbListResource extends ServerResource {
-    private long patientId;
-
-    protected void doInit() {
-
-        patientId = Long.parseLong(getAttribute("patientId"));
-    }
+    private long id;
 
 
     @Get("json")
@@ -32,7 +27,9 @@ public class PatientCarbListResource extends ServerResource {
         EntityManager em = JpaUtil.getEntityManager();
 
         PatientRepository patientRepository = new PatientRepository(em);
-        List<Carb> carbList = patientRepository.getCarbList(this.patientId);
+        id = Long.parseLong(this.getRequest().getClientInfo().getUser().getIdentifier());
+
+        List<Carb> carbList = patientRepository.getCarbList(id);
         List<CarbRepresentation> carbRepresentationList = new ArrayList<>();
 
         for (Carb c : carbList) {
@@ -47,8 +44,9 @@ public class PatientCarbListResource extends ServerResource {
     public CarbRepresentation addCarb(CarbRepresentation carbRepresentationIn) throws AuthorizationException {
         ResourceUtils.checkRole(this, Shield.ROLE_PATIENT);
         if (carbRepresentationIn == null) return null;
+        id = Long.parseLong(this.getRequest().getClientInfo().getUser().getIdentifier());
 
-        carbRepresentationIn.setPatientId(this.patientId);
+        carbRepresentationIn.setPatientId(id);
         Carb carb = carbRepresentationIn.createCarb();
         EntityManager em = JpaUtil.getEntityManager();
         CarbRepository carbRepository = new CarbRepository(em);
@@ -56,7 +54,7 @@ public class PatientCarbListResource extends ServerResource {
         CarbRepresentation c = new CarbRepresentation(carb);
 
         PatientRepository patientRepository = new PatientRepository(em);
-        Patient patient = patientRepository.read(patientId);
+        Patient patient = patientRepository.read(id);
 
         em.detach(patient);
         patient.setRecentCarb(carb.getDate());

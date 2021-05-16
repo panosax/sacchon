@@ -21,7 +21,6 @@ public class PatientCarbResource extends ServerResource {
     private long carbId;
 
     protected void doInit() {
-        patientId = Long.parseLong(getAttribute("patientId"));
         carbId = Long.parseLong(getAttribute("carbId"));
     }
 
@@ -29,6 +28,7 @@ public class PatientCarbResource extends ServerResource {
     @Get("json")
     public CarbRepresentation getCarb() throws AuthorizationException {
         ResourceUtils.checkRole(this, Shield.ROLE_PATIENT);
+        patientId = Long.parseLong(this.getRequest().getClientInfo().getUser().getIdentifier());
         EntityManager em = JpaUtil.getEntityManager();
 
         PatientRepository patientRepository = new PatientRepository(em);

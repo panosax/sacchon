@@ -10,7 +10,7 @@
         <module name="sacchon" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="11">
+    <bytecodeTargetLevel>
       <module name="sacchon" target="11" />
     </bytecodeTargetLevel>
   </component>

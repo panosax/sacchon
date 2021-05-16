@@ -3,6 +3,7 @@ package representation;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import model.Doctor;
+import util.CryptoUtils;
 
 @Data
 @NoArgsConstructor
@@ -31,7 +32,7 @@ public class DoctorRepresentation {
     public Doctor createDoctor() {
         Doctor doctor = new Doctor();
         doctor.setUsername(username);
-        doctor.setPassword(password);
+        doctor.setPassword(CryptoUtils.hashPassword(password));
         doctor.setName(name);
         doctor.setAddress(address);
         doctor.setEmail(email);

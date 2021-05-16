@@ -18,13 +18,13 @@ public class DoctorPatientResource extends ServerResource {
     private long patientId;
 
     protected void doInit() {
-        doctorId = Long.parseLong(getAttribute("doctorId"));
         patientId = Long.parseLong(getAttribute("patientId"));
     }
 
     @Get("json")
     public PatientRepresentation getPatient() throws AuthorizationException {
         ResourceUtils.checkRole(this, Shield.ROLE_DOCTOR);
+        doctorId = Long.parseLong(this.getRequest().getClientInfo().getUser().getIdentifier());
         EntityManager em = JpaUtil.getEntityManager();
         DoctorRepository doctorRepository = new DoctorRepository(em);
         List<Patient> patientList = doctorRepository.getPatientList(this.doctorId);

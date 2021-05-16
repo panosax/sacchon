@@ -21,7 +21,6 @@ public class PatientGlucoseResource extends ServerResource {
     private long glucoseId;
 
     protected void doInit() {
-        patientId = Long.parseLong(getAttribute("patientId"));
         glucoseId = Long.parseLong(getAttribute("glucoseId"));
     }
 
@@ -31,7 +30,9 @@ public class PatientGlucoseResource extends ServerResource {
         ResourceUtils.checkRole(this, Shield.ROLE_PATIENT);
         EntityManager em = JpaUtil.getEntityManager();
         PatientRepository patientRepository = new PatientRepository(em);
-        List<Glucose> glucoseList = patientRepository.getGlucoseList(this.patientId);
+        patientId = Long.parseLong(this.getRequest().getClientInfo().getUser().getIdentifier());
+
+        List<Glucose> glucoseList = patientRepository.getGlucoseList(patientId);
         Glucose glucose = new Glucose();
         for (Glucose g : glucoseList) {
             if (g.getId() == glucoseId) {

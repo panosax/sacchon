@@ -14,10 +14,7 @@ import java.util.Date;
 public class PatientGlucoseAverageResource extends ServerResource {
     private long patientId;
 
-    protected void doInit() {
 
-        patientId = Long.parseLong(getAttribute("patientId"));
-    }
 
     @Get
     public Double getAverageGlucose() throws AuthorizationException {
@@ -28,9 +25,10 @@ public class PatientGlucoseAverageResource extends ServerResource {
         Date dateEnd = ResourceUtils.stringToDate(end, 1);
 
         EntityManager em = JpaUtil.getEntityManager();
+        patientId = Long.parseLong(this.getRequest().getClientInfo().getUser().getIdentifier());
 
         PatientRepository patientRepository = new PatientRepository(em);
-        Double glucose = patientRepository.getGlucoseAverage(this.patientId, dateStart, dateEnd);
+        Double glucose = patientRepository.getGlucoseAverage(patientId, dateStart, dateEnd);
 
         em.close();
         return glucose;

@@ -22,13 +22,14 @@ public class DoctorConsultationResource extends ServerResource {
     private long consultationId;
 
     protected void doInit() {
-        doctorId = Long.parseLong(getAttribute("doctorId"));
         consultationId = Long.parseLong(getAttribute("consultationId"));
     }
 
     @Get("json")
     public ConsultationRepresentation getConsultation() throws AuthorizationException {
         ResourceUtils.checkRole(this, Shield.ROLE_DOCTOR);
+        doctorId = Long.parseLong(this.getRequest().getClientInfo().getUser().getIdentifier()); // extract id user
+
         EntityManager em = JpaUtil.getEntityManager();
         DoctorRepository doctorRepository = new DoctorRepository(em);
         List<Consultation> consultationList = doctorRepository.getConsultationList(this.doctorId);

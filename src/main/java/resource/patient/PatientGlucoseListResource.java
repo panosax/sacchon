@@ -20,18 +20,16 @@ import java.util.List;
 public class PatientGlucoseListResource extends ServerResource {
     private long patientId;
 
-    protected void doInit() {
-        patientId = Long.parseLong(getAttribute("patientId"));
-    }
 
 
     @Get("json")
     public List<GlucoseRepresentation> getGlucoseList() throws AuthorizationException {
         ResourceUtils.checkRole(this, Shield.ROLE_PATIENT);
         EntityManager em = JpaUtil.getEntityManager();
+        patientId = Long.parseLong(this.getRequest().getClientInfo().getUser().getIdentifier());
 
         PatientRepository patientRepository = new PatientRepository(em);
-        List<Glucose> glucoseList = patientRepository.getGlucoseList(this.patientId);
+        List<Glucose> glucoseList = patientRepository.getGlucoseList(patientId);
         List<GlucoseRepresentation> glucoseRepresentationList = new ArrayList<>();
 
         for (Glucose c : glucoseList) {
@@ -46,8 +44,9 @@ public class PatientGlucoseListResource extends ServerResource {
     public GlucoseRepresentation add(GlucoseRepresentation glucoseRepresentationIn) throws AuthorizationException {
         ResourceUtils.checkRole(this, Shield.ROLE_PATIENT);
         if (glucoseRepresentationIn == null) return null;
+        patientId = Long.parseLong(this.getRequest().getClientInfo().getUser().getIdentifier());
 
-        glucoseRepresentationIn.setPatientId(this.patientId);
+        glucoseRepresentationIn.setPatientId(patientId);
         Glucose glucose = glucoseRepresentationIn.createGlucose();
         EntityManager em = JpaUtil.getEntityManager();
         GlucoseRepository glucoseRepository = new GlucoseRepository(em);
